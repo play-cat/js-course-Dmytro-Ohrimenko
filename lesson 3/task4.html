@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <p>Перевіряємо чи заданий рік є високосним</p> -->
+    <script>
+        const year = +prompt('Enter a year');
+        // підставляємо наступний місяць після потрібного нам і ставимо номер дня 0
+        // (нам потрібен лютий для визначення кількості днів у ньому)
+        // тим самим ми змушуємо JS показати останій день попереднього місяця
+        let date = new Date(`${year}`, 2, 0);
+        let daysInFebruary = date.getDate();
+
+        // контрукція if(year) поверне true якщо користувач ввів число.
+
+        if(year && daysInFebruary === 29) {
+            alert('It is a leap year')
+        } else if (year && daysInFebruary === 28) {
+            alert('It is not a leap year')
+        } else {
+            alert('Please enter a year')
+        }
+
+
+        console.log(date);
+        console.log(year);
+        console.log(daysInFebruary);
+
+
+    </script>
+</body>
+
+</html>
