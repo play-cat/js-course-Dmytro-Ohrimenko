@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Визначити чи користувач повнолітній -->
+    <script>
+        let birthYear = +prompt("Enter your year of birth");
+        let currentYear = new Date().getFullYear();
+        let currentAge = currentYear - birthYear;
+
+        const adultAge = 18;
+
+        // if(умова){інструкція}
+
+        // ==  дорівнює
+        // ​​===  дорівнює + перевіряє тип даних
+
+        if (currentAge >= adultAge) {
+            alert("The user is of legal age")
+        }
+        else {
+            alert("The user is a minor")
+        }
+
+
+    </script>
+</body>
+
+</html>

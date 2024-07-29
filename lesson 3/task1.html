@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача отримати з клавіатури три числа і вивести середнє значення їх суми -->
+    <script>
+        let value1 = prompt("Enter the first value");
+        let value2 = prompt("Enter the second value");
+        let value3 = prompt("Enter the third value");
+
+        // Функція prompt завжди повертає тип даних string
+        // щоб конвертувати їх у тип даних number використовують функції
+        // Number(), parseInt(),  parseFloat(), або просто +
+        // parseInt(),  parseFloat() парсять число з рядка в якому можеть бути не лише цифри
+        // parseInt(20px) --> 20
+        // також можливо одразу огорнути промпт функцією яка конвертує введене значення в число
+        // let value1 = Number(prompt("Enter the first value"))
+        // let value1 = +prompt("Enter the first value");
+
+
+        console.log(typeof (value1));
+
+        value2 = parseFloat(value2);
+        value3 = parseFloat(value3);
+
+        let summ = value1 + value2 + value3;
+        let ave = summ / 3;
+
+        // Щоб в виводі зменшити кількість знаків після коми використовуємо функцію
+        // ave.toFixed(2)
+
+        alert("Averege is: " + ave.toFixed(2));
+    </script>
+</body>
+
+</html>
