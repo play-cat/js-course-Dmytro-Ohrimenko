@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Визначити чи є слово паліндромом (читається однаково туди і назад)
+        let inintialValue = "І що сало ласощі";
+        let value = inintialValue.replace(/\s+/g, "").toLowerCase();
+        let len = value.length;
+
+        let isPalindrome;
+
+        for (let i = 0; i < len / 2; i++) {
+            if (value[i] !== value[len - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+            isPalindrome = true;
+
+        }
+
+        if (isPalindrome) {
+            console.log(inintialValue + " is Palindrome");
+        } else {
+            console.log(inintialValue + " is not Palindrome");
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("first line");
+        let sum = 2000;
+
+        // { } операторні дужки використовуються
+        // щоб позначити серію команд
+
+        if (sum > 1000) {
+            console.log("discount");
+        } else {
+            console.log("no discont");
+        }
+
+        // switch  оператор багатозначного вибору
+        // служить порівнянням значення на варіанти
+        let dayNumber = 2;
+
+        switch (dayNumber) {
+            case 0:
+                console.log("Sunday");
+                break;
+            case 1:
+                console.log("Monday");
+                break;
+            case 2:
+                console.log("Tuesday");
+                break;
+            default:
+                console.log("Error");
+                break;
+        }
+
+        // Тернарний оператор - операція 
+        // яка повертає свій другий чи третій операнд
+        // в залежності від значення логічного висловлювання
+        // заданого першим операндом.
+
+        // Тернарний оператор повинен використовуватися щоб
+        // ініціалізувати щось після тернарної перевірки.
+
+
+        let maxSum = 1500;
+        // Дужки () в умові не обовязкові
+        let res = (maxSum > 1000) ? "discont" : "no discont";
+        console.log(res);
+
+        // Цикли while / do while / for
+
+        let count = 0;
+        while (count < 5) {
+            console.log("iteration " + count);
+            count++;
+        }
+
+        let c = 0;
+        do {
+            console.log("iteration " + c);
+            c++;
+        } while (c < 5);
+
+        for (let i = 0; i < 5; i++) {
+            console.log("iteration " + i);
+        }
+    </script>
+</body>
+
+</html>

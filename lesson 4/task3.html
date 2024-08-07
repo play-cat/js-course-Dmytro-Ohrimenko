@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Обчислити суму усіх чисел в заданому користувачем діапазоні
+
+        function getValue(message) {
+            while (true) {
+                let value = prompt(message);
+                let isValid = !isNaN(value) && value !== "" && value !== null;
+                if (isValid) return Number(value);
+            }
+
+        }
+        let start = getValue("Введіть початок діапазаону");
+        let end = getValue("Введіть кінець діапазаону");
+
+        if (end < start) {
+            alert("Кінець діапазону не може бути меншим за початок")
+        } else {
+
+            let sum = 0;
+            for (let i = start; i <= end; i++) {
+                sum += i;
+            }
+            alert(`Сума чисел в діапазоні від ${start} до ${end} дорівнює ${sum}`);
+        }
+
+
+    </script>
+</body>
+
+</html>

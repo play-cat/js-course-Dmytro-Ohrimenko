@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Програма генерує випадкове число від 1 до 100
+        // користувач має його вгадати
+        // програма дає підказки "більше" чи "менше"
+        // допоки користувач не вгадає загадане число.
+
+      
+
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        while (true) { // запускаємо безкінечний цикл, який обірветься командою break
+            let value = Number(prompt("Enter value"));
+
+            if (value == randomNumber) {
+                console.log("Right! My number is " + randomNumber);
+                break;
+            }
+            else if (value > randomNumber) {
+                console.log("My number is less then " + value);
+            }
+            else if (value < randomNumber) {
+                console.log("My number is more then " + value);
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
