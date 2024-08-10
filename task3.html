@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let throwCount = +prompt("Скільки разів ви хочете кинути шестигранний кубик?");
+        let random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+        for (let i = 0; i < throwCount; i++) {
+            const result = random(1, 6); // шестиграний кубик тому від 1 до 6
+            console.log(result);
+        }
+
+        // таким чином можна створити кубики з різною кількістю граней
+        // 12 граней
+        // let d12 = () =>  random(1, 12);
+        // 6 граней
+        // let d6 = () => random(1, 6);
+        // використання
+        // for (let i = 0; i < throwCount; i++) {
+        //     const result = d12();
+        //     console.log(result);
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Задача обчислює площу та периметр кола -->
+
+    <script src="../common/my-library.js"></script>
+
+    <script>
+        // оголошені функції
+
+        // function getCircleArea(radius) {
+        //     return Math.PI * Math.pow(radius, 2);
+        // }
+
+        // function getCirclePerimeter(radius) {
+        //     return 2 * Math.PI * radius;
+        // }
+
+        // стрілочні функції
+
+        let getCircleArea = radius => Math.PI * Math.pow(radius, 2);
+
+        let getCirclePerimeter = radius => 2 * Math.PI * radius;
+
+        const radius = getNumericValue("Enter the radius");
+        let area = getCircleArea(radius);
+        let perimeter = getCirclePerimeter(radius);
+
+        alert(`Area of ​​a circle ${area}\nPerimeter of a circle ${perimeter}`)
+    </script>
+
+</body>
+
+</html>

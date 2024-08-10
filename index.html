@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Функції -->
+
+    <script>
+        // загальний вигляд функції
+        // функція може містити параметри у (), а може бути без них
+        //function functionName(text, repeatCount) {
+        // function body
+        // }
+
+        function printMyName() {
+            console.log("Hello!");
+            console.log("My name is Andry");
+        }
+
+        printMyName();
+
+        function printName(name = "defaultName") {
+            console.log("Hello!");
+            // console.log("My name is " + name); // конкантенація
+            console.log(`My name is ${name}`); // інтерполяція
+        }
+
+        printName("Alex"); // underfined у випадку якщо не передати параметр і у функції не вказано дефолтне значення
+
+        // За замовчуванням функція повертає underfined. Щоб зазначити що саме потрібно щоб повернула функція
+        // використовують оператор return
+
+        function addDigits(x, y) {
+            let sum = x + y;
+            return sum;
+        }
+
+        // виклик функції без оголошення змінної
+        console.log(addDigits(2, 3));
+        //  виклик функції через змінну
+        let result = addDigits(20, 30);
+        console.log(result);
+
+        // Змінні у скрипті мають глобальну область видимості і можуть бути використані 
+        // у будь якій частині скрипту, або навіть у іншому скрипту, який буде підключений після
+        // скрипта в якому оголошенно змінну.
+
+        // <script>
+        // оголошуємо змінну в одному сценарії
+        // let globalName = "Global name";
+        // <//script>
+
+        // <script>
+        // використовуюмо змінну в іншому сценарії
+        // console.log(globalName);
+        // <//script>
+
+        let myGlobal = "This is global value";
+
+        if (true) {
+            console.log("first if statement");
+            console.log(myGlobal);
+        }
+
+        // змінні let що оголошені всередині if() та циклах видимі тільки всередині них
+        // тобто змінна, що оголошена всередині {} видима тільки в цьому блоці видиості
+
+        // Застарілі змінні оголошені через var мають глобальну область видимості по всьому коду
+        // навіть якщо вони оголошені всередині {}
+        // виключенням є тільки змінні, що оголошені всередині функції
+        // вони видимі тільки в ній
+
+        // ВИДИ ОГОЛОШЕННЯ ФУНКЦІЇ
+
+        // функція-оголошення
+        function add(a, b) {
+            let temp = a + b;
+            return temp;
+        }
+        res = add(1, 2);
+
+        // іменована функція-вираз
+        let add1 = function add(a, b) {
+            return a + b
+        }
+        res = add1(10, 20);
+
+        // функція-вираз або анонімна функція (немає імені)
+        let add2 = function (a, b) {
+            return a + b;
+        }
+        res = add2(100, 200);
+
+        // стрілочна функція (arrow function)
+        let add3 = (a, b) => {
+            return a + b;
+        }
+        res = add3(1000, 2000);
+
+        // стрілочна функція (arrow function) без операторних дужок
+        let add4 = (a, b) => a + b;
+
+        res = add4(10000, 20000);
+
+        1^18
+
+
+
+
+    </script>
+</body>
+
+</html>
