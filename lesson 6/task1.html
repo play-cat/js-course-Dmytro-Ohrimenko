@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Знайти мінімальне, максимальне значення елементів масиву, а також виведе суму значень елементів -->
+   <script>
+    // Проста функція
+    // function min(array) {
+    //   minValue = Number.MAX_VALUE;
+    //   for (const value of array) {
+    //     if (value < minValue) {
+    //       minValue = value;
+    //     }
+    //   }
+    //   return minValue;
+    // }
+
+    // Більш просунуте виконання
+    function min(array) {
+      // ... Spread Розпилює/розщеплює масив на окремі елементи, та передає їх як набір аргументів у функцію
+      return Math.min(...array);
+    }
+
+    function max(array) {
+      return Math.max(...array);
+    }
+
+    function sum(array) {
+      return array.reduce(function (previousValue, currentValue, index, array) {
+        return previousValue + currentValue;
+      });
+    }
+
+    let values = [10, 20, 14, 25, 0, 54, 88, 13, 22];
+
+    console.log(min(values));
+    console.log(max(values));
+    console.log(sum(values));
+
+   </script>
+</body>
+</html>

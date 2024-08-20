@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Знайти в масиві усі від'ємні значення і змінити їх на 0. Потім вивести усі значення масиву. -->
+   <script>
+    let values = [10, 20, -2, 6, 11, -10, 125, -3, 0, 8];
+
+    for (let i = 0; i < values.length; i++) {
+      if(values[i] < 0) {
+        values[i] = 0;
+      }      
+    }
+
+    values.forEach((value, index) => console.log(`index ${index} = ${value}`));
+   </script>
+</body>
+</html>

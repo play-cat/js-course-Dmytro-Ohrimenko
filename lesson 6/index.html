@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Масив — коллекція значень. особливий вид об'єкта у JS. Може містити елементи будь яких типів. -->
+
+  <script>
+    let array = []; // Пустий масив
+    let cities = ["Kyiv", "London", "Berlin"];
+
+    cities[1] = "Paris";
+    console.log(cities);
+
+    for (let i = 0; i < cities.length; i++) {
+      // Якщо далі в циклі буде викорисовуватись багато рядків коду, то краще оприділити змінну
+      const city = cities[i];
+      console.log(city);
+    }
+
+    // Цикли for in та for of
+
+    for (const key in cities) {
+      console.log(cities[key]);
+    }
+
+    for (const city of cities) {
+      console.log(city);
+    }
+   </script>
+</body>
+</html>

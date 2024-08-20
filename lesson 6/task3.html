@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Генерація випадкового числа від 1 до 100. Користувач має вгадати число. необмежена кількість спроб. Після вгадування виводитяться усі значення, що були введені
+   -->
+  <script>
+    function getNumberFrom1to100(message) {
+      while(true) {
+        let value = prompt(message);
+        let isValid = !isNaN(value) && value !== '' && value !== null && value > 0 && value <= 100;
+        if(isValid) {
+          return Number(value);
+        }
+      }      
+    }
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+    
+
+    let userNumbers = [];
+
+    do { 
+      attempt = getNumberFrom1to100('Enter a number between 1 and 100');     
+      userNumbers.push(attempt);
+      if(attempt < randomNum) {
+        alert(`I guessed more than ${attempt}`);
+      } else if(attempt > randomNum) {
+        alert(`I guessed less than ${attempt}`);
+      } 
+    } while (attempt !== randomNum);
+
+    alert(`You guessed it! The desired number is ${randomNum}`);
+
+    console.log(`You have made ${userNumbers.length} attempts`);
+
+    userNumbers.forEach(x => console.log(x));
+
+
+
+  </script>
+</body>
+</html>
