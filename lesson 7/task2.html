@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Приклад заміни switch:case через об'єкт -->
+    <script>
+      let options = {
+        circle: function () {
+          console.log('circle');
+        },
+        rectangle: function () {
+          console.log('rectangle');
+        },
+        triangle: function () {
+          console.log('triangle');
+        },
+      };
+
+      // Отримуємо назву фігури
+      let option = prompt('select circle, rectangle or triangle');
+
+      // Використовуємо отриману опцію
+      // При звернені до методу об'єкту через зміну потрібно звертатись через квадратні дужки
+      // Метод через крапку не працює
+      options[option]();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Симуляція магазину
+      let shopDatabase = {
+        products: [
+          { name: 'Папір офісний А4, 80 г/м2, 500 л.', price: 280.25 },
+          { name: 'Біндери для паперу 51 мм, 10шт.', price: 56 },
+          { name: 'Ручка кулькова, синя', price: 12.5 },
+        ],
+
+        add: function (name, price) {
+          this.products.push({ name: name, price: price });
+        },
+
+        remove: function (name) {
+          let product = this.products.filter(x => x.name == name)[0];
+          let index = this.indexOf(product);
+          this.products.splice(index, 1);
+        },
+      };
+
+      let shopingCart = {
+        cart: [],
+
+        add(product, count) {
+          this.cart.push({ product: product, count: count });
+        },
+
+        getTotalPrice() {
+          let sum = 0;
+          this.cart.forEach(item => (sum += item.product.price * item.count));
+          return sum;
+        },
+      };
+
+      let uiControler = {
+        display: function (message) {
+          console.log(message);
+        },
+
+        displayList: function (list, messageTemplateFn) {
+          list.forEach(item => this.display(messageTemplateFn(item)));
+        },
+
+        promptNumber: function (message) {
+          return +prompt(message);
+        },
+
+        promptByList: function (list, messageTemplateFn) {
+          return list.map(item => this.promptNumber(messageTemplateFn(item)));
+        },
+      };
+
+      let productCount = uiControler.promptByList(
+        shopDatabase.products,
+        item => `${item.name} = ${item.price} грн.`
+      );
+
+      shopDatabase.products.forEach((item, index) => {
+        shopingCart.add(item, productCount[index]);
+      });
+
+      let total = shopingCart.getTotalPrice();
+
+      if (total > 1000) {
+        alert(`Покупка на сумму: ${total} грн. Доставка буде безкоштовною.`);
+      } else {
+        alert(`Покупка на сумму: ${total} грн.`);
+      }
+    </script>
+  </body>
+</html>

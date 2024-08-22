@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Об'єкти в JS -->
+    <!-- Об'єкт — сукупність пов'язаних даних та функціональних можливостей. 
+      Об'єкти містять властивості та методи -->
+    <!-- Властивості — стан об'єкта, значення будь-якого типу-->
+    <!-- Методи — поведінка об'єкта, функція, виконує будь-яку операцію -->
+    <script>
+      // Об'єкти можна створювати двома способами
+      // Через виклик конструктора
+      let user1 = new Object();
+      // Через використання літералу об'єкта
+      let user2 = {};
+
+      let product1 = {
+        name: 'Phone',
+        price: 10000,
+        // Функції в об'єкті називають методами об'єкту
+        // this характеристика функції яка називається контекст.
+        //Контекст змінюється в залежності від того в якому контексті використовується функція
+        // Контекст this дає можливість отримати доступ до об'єкту в якому знаходиться ця функція
+        // Тобто не потрібно явно яказувати назву об'єкту
+        displayInfo: function () {
+          console.log(this.name);
+          console.log(this.price);
+        },
+        // Існує коротший синтаксис для методів в літералі об’єкта:
+        // ми можемо опустити "function" і написати просто metodName()
+        sayHello() {
+          console.log('Hello');
+        },
+      };
+
+      let product2 = {};
+      // Додавання нових властивостей в об'єкт
+      product2.name = 'Laptop';
+      product2.price = 50000;
+      product2.displayInfo = function () {
+        console.log(this.name);
+        console.log(this.price);
+      };
+
+      // Щоб звернутись до властивості об'єкту маємо два шляхи
+      // запис через крапку
+      // product2.name //Laptop
+      // Для властивостей, імена яких складаються з декількох слів, доступ до значення «через крапку» не працює
+      // Для таких випадків існує альтернативний спосіб доступу до властивостей через квадратні дужки.
+      // Такий спосіб спрацює з будь-яким ім’ям властивості:
+      // let user = {};
+      // присвоювання значення властивості
+      // user["любить птахів"] = true;
+      // отримання значення властивості
+      // alert(user["любить птахів"]); // true
+      // видалення властивості
+      // delete user["любить птахів"];
+
+      // Детальніше за посиланням https://uk.javascript.info/object
+
+      console.log(product2.id); // underfined при спробі звернутись до неіснуючої властивості
+
+      product1.displayInfo();
+      product1.sayHello();
+      product2.displayInfo();
+
+      // Методом може бути стороння функція
+      function display() {
+        console.log(this.name);
+        console.log(this.price);
+      }
+
+      // Приклад коли функція застосовується до створеного на льоту об'єкта
+      display.apply({ name: 'clock', price: 500 });
+
+      let product3 = new Object();
+      product3.name = 'Gamepag';
+      product3.price = 3000;
+      // Передача стороньої функції в якості методу
+      product3.displayInfo = display;
+
+      console.log(product3);
+      product3.displayInfo();
+
+      // Створення функції-фабрики, для зменшення дублювання коду
+      function createProduct(id, name, price) {
+        let product = {};
+
+        product.id = id;
+        product.name = name;
+        product.price = price;
+        product.displayInfo = display;
+
+        return product;
+      }
+      // Використання ф-ї для створення продукту
+      let product4 = createProduct(1, 'microphone', 2500);
+      product4.displayInfo();
+
+      // Використання фабричних ф-й актуальне, коли об'їкти створені ними не міститимуть медодів
+      // Бо в протилежному випадку кожний об'єкт міститиме в собі копію функції-методу
+      // Щоб позбутись цього використовують класи class
+      // Class можна назвати шаблоном, або кресленням по якому будуть створюватись об'єкти
+      // У Class немає властивості hoisting. Неможливо використати клас раніше ніж він створений
+
+      // constructor - ключове слово
+      // constructor створить об'єкт з заданими властивостями
+
+      // Методи у класах записуються без ключового слова function
+      // Між методами не потрібно ставити кому
+
+      class Product {
+        constructor(id, name, price) {
+          this.id = id;
+          this.name = name;
+          this.price = price;
+        }
+        displayInfo() {
+          console.log(this.id);
+          console.log(this.name);
+          console.log(this.price);
+        }
+      }
+
+      // Виокристання класу
+      let product5 = new Product(3, 'microscope', 45000);
+      let product6 = new Product(4, 'blender', 1500);
+
+      product5.displayInfo();
+      product6.displayInfo();
+    </script>
+  </body>
+</html>
