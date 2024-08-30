@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .test {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="element">Hello world!</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ut vel quod
+      odit quas aliquid quia. Possimus voluptatem molestias iusto error laborum
+      dignissimos! Neque pariatur dolorum cum libero ut similique.
+    </p>
+    <ul id="list">
+      <li>Item 1</li>
+    </ul>
+
+    <script>
+      // Давнішній метод передачі об'єкта у змінну
+      // let element = document.getElementById('element');
+
+      // Приймає css селектори.
+      // Наприклад p > ul, .test p, #element ~ li
+      // Повертає перший знайдений селектор, а не усі.
+      // Щоб отримати усі елементи з підходящти селектором
+      // потрібно використовувати .querySelectorAll
+      // Повертає щось на зразок масиву, можна використовувати індекси[0]
+      let element = document.querySelector('#element');
+
+      // .innerHTML рендерить переданий код
+
+      element.innerHTML = '<i>Hello world!</i>';
+      // element.innerHTML = '<img src=x onerror="alert(\'XSS Attack\')" >';
+
+      // .textContent не регдерить теги, все виводиться як текст.
+      // Варто саме таким чином змінювати текстову частину,
+      // якщо вона приходить від користувача. задля безпеки
+      // і неможливості виконання сторонього коду.
+
+      // element.textContent = '<i>Hello world!</i>';
+
+      // .innerText теж не рендерить код але працює трохи по іншому
+      // і займає більше часу на своє виконання.
+      // Зараз набагато розумніше віддати перевагу textContent.
+      // element.innerText = '<i>Hello world!</i>';
+
+      // Застарілий метод додавання класу
+      // element.className = 'test';
+
+      // Робота з inline стилями
+      // element.style.color = 'green';
+
+      element.classList.add('test');
+      // element.classList.remove('test');
+
+      console.log(element.innerHTML);
+
+      let list = document.querySelector('#list');
+      console.log(list);
+
+      // for (let i = 2; i < 5; i++) {
+      //   let li = document.createElement('li');
+      //   li.textContent = `Item ${i}`;
+      //   list.appendChild(li);
+      // }
+
+      // document.createElement('li') Створення нового елементу
+
+      let li = document.createElement('li'); //<li>
+      li.textContent = 'Item 2';
+      list.appendChild(li);
+
+      // .insertAdjacentHTML()
+      // Вставка html коду у вказане місце
+      list.insertAdjacentHTML('beforeend', '<li>Item 3</li>');
+
+      // .insertAdjacentElement() вставка готового елементу
+      let li4 = document.createElement('li');
+      li4.textContent = 'Item 4';
+      list.insertAdjacentElement('beforeend', li4);
+    </script>
+  </body>
+</html>
