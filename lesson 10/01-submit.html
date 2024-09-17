@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .form-group {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Form submit</h1>
+    <form action="https://itvdn.com/ua/catalog?" method="get">
+      <div class="form-group">
+        <label for="">Request</label>
+        <input type="text" name="search" value="javascript" />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Search" />
+      </div>
+    </form>
+
+    <script>
+      // Нижче просто тренувальний код
+      // Отримуємо колекцію чи масив html об'єктів з усіма формати на сторінці
+      // let forms = document.forms;
+      // Кожній формі записуємо рандомне число у поле search
+      // for (let curentForm of forms) {
+      //   curentForm.search.value = Math.ceil(Math.random(100) * 100);
+      // }
+
+      const form = document.forms[0];
+      //submit подія відбувається при натискані кнопки submit, при цьому відбувається відправка даних форми
+      form.addEventListener('submit', function (event) {
+        alert('Event submit');
+        // Таким чином можна отримати доступ до кожного елемента в формі
+        // Також варто вказувати type, інакше перебиратимуться усі інпути включно з type="submit"
+        // form.elements[0];
+        console.log(event); // відображає об'єкт SubmitEvent
+
+        // Якщо поле введеня порожнє, не надсилаємо форму
+        if (form.search.value.length === 0) {
+          event.preventDefault(); // Скасування надсилання форми
+          alert('Empty field form');
+        }
+      });
+    </script>
+  </body>
+</html>
